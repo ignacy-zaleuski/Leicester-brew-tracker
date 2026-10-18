@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leicester Brew Tracker - Internal Dev Assets & Diagnostics</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+<style>
+  :root {
+    --coffee-dark: #1b120c;
+    --coffee-card: #271b13;
+    --coffee-accent: #c08552;
+    --terminal-green: #7dff6b;
+  }
+  body {
+    margin: 0;
+    background: var(--coffee-dark);
+    color: #e3d5ca;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, monospace;
+    overflow-x: hidden;
+  }
+  a { color: var(--coffee-accent); }
+
+  header {
+    border-bottom: 1px solid #3d2a1d;
+    padding: 16px 24px;
+    background: #140d08;
+  }
+
+  .badge-dev {
+    font-size: 11px;
+    color: var(--coffee-accent);
+    border: 1px solid #4a3425;
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 30px auto;
+    padding: 0 20px 48px;
+  }
+
+  .section-label {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    color: #a3816a;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-family: "Courier New", monospace;
+  }
+
+  .box-panel {
+    border: 1px solid #3d2a1d;
+    background: var(--coffee-card);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+
+  .media-wrap {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .transmission pre {
+    background: #120b07;
+    border: 1px solid #3d2a1d;
+    padding: 14px;
+    border-radius: 6px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 13px;
+    color: var(--terminal-green);
+    font-family: "Courier New", monospace;
+    line-height: 1.8;
+    margin: 0;
+  }
+
+  /* Improved Dev Note Banner */
+  .dev-note-box {
+    background: rgba(61, 42, 29, 0.4);
+    border-left: 4px solid var(--coffee-accent);
+    border-top: 1px solid #3d2a1d;
+    border-right: 1px solid #3d2a1d;
+    border-bottom: 1px solid #3d2a1d;
+    border-radius: 0 6px 6px 0;
+    padding: 14px 16px;
+  }
+
+  /* Input Section */
+  .spoiler-wrap {
+    margin-top: 32px;
+    border-top: 1px solid #3d2a1d;
+    padding-top: 24px;
+  }
+  #answer-input {
+    flex: 1;
+    background: #120b07;
+    border: 1px solid #4a3425;
+    color: #7dff6b;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    padding: 10px 14px;
+    border-radius: 4px;
+    outline: none;
+  }
+  #answer-input:focus { border-color: var(--coffee-accent); }
+  #check-btn {
+    background: var(--coffee-accent);
+    color: #ffffff;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  #check-btn:hover { background: #d4955e; }
+
+  #wrong-msg { color: #ff6b6b; font-size: 13px; margin-top: 8px; display: none; }
+
+  /* Victory Box */
+  #victory {
+    display: none;
+    margin-top: 24px;
+    border: 1px solid var(--terminal-green);
+    padding: 24px;
+    background: #120b07;
+    border-radius: 8px;
+    text-align: center;
+    animation: glow-in 0.5s ease forwards;
+  }
+  @keyframes glow-in {
+    from { opacity: 0; transform: scale(0.97); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .confetti-container {
+    position: fixed; top: 0; left: 0; width: 100%; height: 0; pointer-events: none; z-index: 10000;
+  }
+  .confetti-piece {
+    position: absolute; width: 8px; height: 8px; opacity: 0; animation: confetti-fall 2.5s ease forwards;
+  }
+  @keyframes confetti-fall {
+    0% { opacity: 1; transform: translateY(0) rotate(0deg); }
+    100% { opacity: 0; transform: translateY(100vh) rotate(720deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="confetti-container" id="confetti"></div>
+
+<header class="d-flex justify-content-between align-items-center">
+  <div class="d-flex align-items-center">
+    <i class="bi bi-code-slash text-warning me-2 fs-5"></i>
+    <b class="text-light">[ LEICESTER BREW TRACKER - APP ASSET LOGS ]</b>
+  </div>
+  <span class="badge-dev">internal dev mode</span>
+</header>
+
+<div class="container">
+
+  <!-- Mission briefing with clear, readable dev update box -->
+  <div class="box-panel">
+    <h5 class="fw-bold text-white mb-2"><i class="bi bi-info-circle me-2 text-warning"></i>Repository Notes & Change Log</h5>
+    <p class="text-light small mb-3">
+      Working on local coffee app updates for the Leicester area. Cleaning up assets and repository files before deployment.
+    </p>
+    
+    <div class="dev-note-box">
+      <div class="d-flex align-items-start">
+        <i class="bi bi-journal-text text-warning fs-5 me-2 mt-1"></i>
+        <div>
+          <strong class="text-white d-block mb-1">Developer Asset Update:</strong>
+          <span class="text-light small" style="line-height: 1.5;">
+            Uploaded the initial mockups and audio notification clip into the repository assets. Check the <code>/assets/audio/</code> folder if you need to pull the raw notification wave file for testing.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Layer 1: Mascot image with hidden base64 comment -->
+  <div class="media-wrap box-panel">
+    <div class="section-label">// asset_01: mascot_draft_final.jpg</div>
+    
+    <!-- TRANSMISSION INTERCEPTED: TXIgRHVjayBzYXlzOiBBcmUgeW91IGFscmlnaHQ/IE5vb29vbywgeW91J3JlIGFsbCBsZWZ0ISEhIFBsYXkgdGhlIGF1ZGlvIGZpbGUsIFFVQUNLIQ0K -->
+    
+    <img src="photos/duck.png" width="340"
+         alt="Mr Duck: a duck in a top hat and monocle. He's 64!"
+         title="nothing to see here... (quack)"
+         class="img-fluid rounded border border-secondary my-2 bg-white p-1">
+    <div class="small text-light mt-1">Logo draft: Mr Duck 🦆</div>
+  </div>
+
+  <!-- Layer 3: Morse code transmission block -->
+  <div class="transmission box-panel">
+    <div class="section-label">// asset_03: encrypted_transmission_beta.txt</div>
+    <pre>--.. ..-. -.. / .. / -. ..-. . -.-. -.-. .-- / --- - . - / --- .--. --.- ...- / .--- ..-. .--- -... -.. .--. / -... ... -- ...- ..- / .--. .- ...- ...-</pre>
+  </div>
+
+  <!-- Spoiler check -->
+  <div class="spoiler-wrap">
+    <p class="small text-white-50">Enter the decrypted flag / final message below:</p>
+    <div class="d-flex gap-2">
+      <input id="answer-input" type="text" placeholder="Type the final message..." autocomplete="off" spellcheck="false"/>
+      <button id="check-btn" onclick="checkAnswer()">Submit</button>
+    </div>
+    <div id="wrong-msg">❌ Incorrect flag. Keep digging.</div>
+  </div>
+
+  <!-- Victory (hidden) -->
+  <div id="victory">
+    <h3 class="fw-bold text-success mb-2">🎉 YIPPEE YIPPEE YOU DID IT!!</h3>
+    <div class="text-warning fst-italic mb-3">"Yippee Yippee you did it! Here's some fried shrimp rice"</div>
+    
+    <div class="text-start border-start border-success ps-3 my-3">
+      <h6 class="fw-bold text-light">Puzzle Chain Completed:</h6>
+      <ul class="list-unstyled small mb-0">
+        <li>✓ <strong>Base64</strong> — Found hidden comment in source code[cite: 5]</li>
+        <li>✓ <strong>Downloaded Audio</strong> — Pulled raw wave file from repo and reversed it to find key: <code>STRAWBERRY</code>[cite: 5]</li>
+        <li>✓ <strong>Morse Code</strong> — Decoded Morse into Vigenère ciphertext[cite: 5]</li>
+        <li>✓ <strong>Vigenère Cipher</strong> — Decrypted ciphertext using key STRAWBERRY[cite: 5]</li>
+      </ul>
+    </div>
+    
+    <div class="small text-white-50">Flag confirmed: <strong>HMM I REALLY WANT SOME SHRIMP FRIED RICE</strong></div>
+  </div>
+
+  <footer class="text-center py-4 text-white-50 small mt-4">
+    Leicester Brew Tracker &bull; Internal Development Console
+  </footer>
+
+</div>
+
+<script>
+  function checkAnswer() {
+    var input = document.getElementById('answer-input').value.trim().toLowerCase();
+    var correct = 'HMM I REALLY WANT SOME SHRIMP FRIED RICE'.toLowerCase();
+    if (input === correct) {
+      document.getElementById('wrong-msg').style.display = 'none';
+      var v = document.getElementById('victory');
+      v.style.display = 'block';
+      v.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      launchConfetti();
+    } else {
+      document.getElementById('wrong-msg').style.display = 'block';
+    }
+  }
+
+  document.getElementById('answer-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkAnswer();
+  });
+
+  function launchConfetti() {
+    var container = document.getElementById('confetti');
+    var colors = ['#00ff41','#00cc33','#ff4141','#ffdd00','#00aaff'];
+    for (var i = 0; i < 60; i++) {
+      (function(i) {
+        setTimeout(function() {
+          var el = document.createElement('div');
+          el.className = 'confetti-piece';
+          el.style.left = Math.random() * 100 + 'vw';
+          el.style.top = '0';
+          el.style.background = colors[Math.floor(Math.random() * colors.length)];
+          el.style.animationDelay = (Math.random() * 0.5) + 's';
+          el.style.animationDuration = (2 + Math.random() * 1.5) + 's';
+          el.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+          container.appendChild(el);
+          setTimeout(function() { el.remove(); }, 4000);
+        }, i * 30);
+      })(i);
+    }
+  }
+</script>
+</body>
+</html>
