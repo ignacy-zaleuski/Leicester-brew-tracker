@@ -1,6 +1,6 @@
 # Leicester Independent Coffee Guide
 
-A small, static coffee-finder page showcasing independent coffee shops in Leicester. The page presents six café listings with locations, ratings, descriptions, and community reviews. Saints of Mokha is highlighted as the featured café.
+A small, static coffee-finder page showcasing twelve Leicester café listings in a three-column desktop grid. Each listing includes a rating, and the cafes feature community reviews and links for finding more information. Saints of Mokha appears among the listings, with an owner note that opens a modal.
 
 **View the site:** [Leicester Independent Coffee Guide](https://ignacy-zaleuski.github.io/Leicester-brew-tracker/)
 

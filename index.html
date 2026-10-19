@@ -53,26 +53,6 @@
       width: 100%;
     }
 
-    /* CSS Stamp Badge for Saints of Mokha */
-    .stamp-badge {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      z-index: 10;
-      color: #b22222;
-      font-weight: 800;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      padding: 6px 10px;
-      border: 3px double #b22222;
-      border-radius: 4px;
-      background-color: rgba(255, 255, 255, 0.95);
-      transform: rotate(-8deg);
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-      letter-spacing: 1px;
-      pointer-events: none;
-    }
-
     .badge-creator {
       background-color: #f3e9dc;
       color: var(--coffee-primary);
@@ -95,6 +75,14 @@
       font-size: 0.8rem;
       flex-shrink: 0;
     }
+
+    .order-6 { order: 6 !important; }
+    .order-7 { order: 7 !important; }
+    .order-8 { order: 8 !important; }
+    .order-9 { order: 9 !important; }
+    .order-10 { order: 10 !important; }
+    .order-11 { order: 11 !important; }
+    .order-12 { order: 12 !important; }
 
     footer {
       background-color: var(--coffee-primary);
@@ -128,72 +116,8 @@
   <main class="container my-5">
     <div class="row g-4">
 
-      <!-- Cafe 1: Saints of Mokha (TARGET) -->
-      <div class="col-lg-6">
-        <div class="card card-coffee">
-          <div class="stamp-badge">
-            <i class="bi bi-patch-check-fill me-1"></i> Special Recognition
-          </div>
-          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="Saints of Mokha">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">Saints of Mokha</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Belvoir Street, Leicester LE1</span>
-              </div>
-              <span class="badge bg-success">4.9 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              Specialty coffee roaster located on Belvoir Street. Known for craft beans, artisan espresso preparation, and authentic coffee culture.
-            </p>
-
-            <hr class="my-3">
-
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
-
-            <!-- Ignacy Target Creator Review -->
-            <div class="p-3 mb-3 rounded" style="background-color: #fcf8f3; border-left: 4px solid var(--coffee-accent);">
-              <div class="d-flex justify-content-between align-items-center mb-1">
-                <div class="d-flex align-items-center">
-                  <div class="review-avatar me-2" style="background-color: #3d2314;">IZ</div>
-                  <div>
-                    <strong class="d-block small">Ignacy Zaleuski <span class="badge-creator ms-1">Creator</span></strong>
-                    <div class="text-warning small">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                  </div>
-                </div>
-                <span class="text-muted small" style="font-size: 0.75rem;">3 days ago</span>
-              </div>
-              <p class="card-text small mb-0 mt-2 text-dark">
-                Hands down my absolute favourite spot in Leicester. The pourover options are incredible. I stop by daily on weekdays before heading into work—can't start the morning without a flat white from here.
-              </p>
-            </div>
-
-            <!-- Reviewer: Dan Borrows -->
-            <div class="d-flex align-items-start mb-2">
-              <div class="review-avatar me-2">DB</div>
-              <div>
-                <strong class="small d-block">Dan Borrows</strong>
-                <p class="small text-muted mb-0">Great ambiance and fast Wi-Fi. Always a smooth roast.</p>
-              </div>
-            </div>
-
-            <!-- Reviewer: Aveson Carvalho -->
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">AC</div>
-              <div>
-                <strong class="small d-block">Aveson Carvalho</strong>
-                <p class="small text-muted mb-0">Excellent customer service and top quality beans roasted on site.</p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Cafe 2: Spiffing Coffee (from image) -->
-      <div class="col-lg-6">
+      <!-- Cafe 1: Spiffing Coffee -->
+      <div class="col-md-6 col-lg-4 order-1">
         <div class="card card-coffee">
           <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="Spiffing Coffee">
           <div class="card-body p-4">
@@ -207,6 +131,7 @@
             <p class="card-text text-secondary small">
               Quaint independent espresso bar serving high-grade single-origin brews and artisanal baked goods.
             </p>
+            <a class="btn btn-link btn-sm p-0 text-decoration-none" href="https://www.google.com/maps/search/?api=1&amp;query=Spiffing+Coffee+Leicester" target="_blank" rel="noopener noreferrer">Click here to find out more</a>
 
             <hr class="my-3">
 
@@ -230,12 +155,72 @@
               </div>
             </div>
 
+            <div class="d-flex align-items-start mt-2">
+              <div class="review-avatar me-2">MK</div>
+              <div>
+                <strong class="small d-block">Maya Khan</strong>
+                <p class="small text-muted mb-0">A great little place to pick up a flat white on the way into town.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Cafe: Saints of Mokha -->
+      <div class="col-md-6 col-lg-4 order-6">
+        <div class="card card-coffee">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="Saints of Mokha">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h3 class="h4 card-title fw-bold mb-1">Saints of Mokha</h3>
+                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Belvoir Street, Leicester LE1</span>
+              </div>
+              <span class="badge bg-secondary">4.9 / 5.0</span>
+            </div>
+            <p class="card-text text-secondary small">
+              Specialty coffee roaster located on Belvoir Street. Known for craft beans, artisan espresso preparation, and authentic coffee culture.
+            </p>
+
+            <hr class="my-3">
+
+            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+
+            <div class="d-flex align-items-start mb-2">
+              <div class="review-avatar me-2">DB</div>
+              <div>
+                <strong class="small d-block">Dan Burrows <span class="text-muted fw-normal">· Owner</span></strong>
+                <p class="small text-muted mb-0">
+                  Hands down my absolute favourite spot in Leicester. The pourover options are incredible. I stop by daily on weekdays before heading into work—can't start the morning without a flat white from here.
+                </p>
+                <button type="button" class="btn btn-link btn-sm p-0 mt-1 text-decoration-none" data-bs-toggle="modal" data-bs-target="#ownerNoteModal">
+                  Click here to find out more
+                </button>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start mb-2">
+              <div class="review-avatar me-2">AC</div>
+              <div>
+                <strong class="small d-block">Aveson Carvalho</strong>
+                <p class="small text-muted mb-0">Great ambiance and fast Wi-Fi. Always a smooth roast.</p>
+              </div>
+            </div>
+
+            <div class="d-flex align-items-start">
+              <div class="review-avatar me-2">AC</div>
+              <div>
+                <strong class="small d-block">Aveson Carvalho</strong>
+                <p class="small text-muted mb-0">Excellent customer service and top quality beans roasted on site.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Cafe 3: 6 Degrees Coffee House (from image) -->
-      <div class="col-lg-6">
+      <div class="col-md-6 col-lg-4 order-2">
         <div class="card card-coffee">
           <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="6 Degrees Coffee House">
           <div class="card-body p-4">
@@ -249,6 +234,7 @@
             <p class="card-text text-secondary small">
               Social enterprise coffee house serving ethically sourced roasts alongside community-driven initiatives.
             </p>
+            <a class="btn btn-link btn-sm p-0 text-decoration-none" href="https://www.google.com/maps/search/?api=1&amp;query=6+Degrees+Coffee+House+Leicester" target="_blank" rel="noopener noreferrer">Click here to find out more</a>
 
             <hr class="my-3">
 
@@ -271,13 +257,20 @@
                 <p class="small text-muted mb-0">Great place to study or catch up on emails over a cappuccino.</p>
               </div>
             </div>
+            <div class="d-flex align-items-start mt-2">
+              <div class="review-avatar me-2">OP</div>
+              <div>
+                <strong class="small d-block">Owen Patel</strong>
+                <p class="small text-muted mb-0">Friendly team and a relaxed spot to meet friends.</p>
+              </div>
+            </div>
 
           </div>
         </div>
       </div>
 
       <!-- Cafe 4: Carrara Coffee Roasters (from image) -->
-      <div class="col-lg-6">
+      <div class="col-md-6 col-lg-4 order-3">
         <div class="card card-coffee">
           <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="Carrara Coffee Roasters">
           <div class="card-body p-4">
@@ -304,13 +297,20 @@
                 <p class="small text-muted mb-0">Top tier espresso roasts. Always buy their beans online too.</p>
               </div>
             </div>
+            <div class="d-flex align-items-start mt-2">
+              <div class="review-avatar me-2">LW</div>
+              <div>
+                <strong class="small d-block">Leah Watson</strong>
+                <p class="small text-muted mb-0">The espresso has a rich flavour and the staff know their coffee.</p>
+              </div>
+            </div>
 
           </div>
         </div>
       </div>
 
       <!-- Cafe 5: Soak Coffee Roasters (from image) -->
-      <div class="col-lg-6">
+      <div class="col-md-6 col-lg-4 order-4">
         <div class="card card-coffee">
           <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="Soak Coffee Roasters">
           <div class="card-body p-4">
@@ -333,8 +333,15 @@
             <div class="d-flex align-items-start">
               <div class="review-avatar me-2">DB</div>
               <div>
-                <strong class="small d-block">Dan Borrows</strong>
+                <strong class="small d-block">Dan Burrows</strong>
                 <p class="small text-muted mb-0">Really good pour overs here if you like light roast profiles.</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-start mt-2">
+              <div class="review-avatar me-2">ER</div>
+              <div>
+                <strong class="small d-block">Ella Roberts</strong>
+                <p class="small text-muted mb-0">Lovely seasonal beans, especially for a slow weekend brew.</p>
               </div>
             </div>
 
@@ -343,7 +350,7 @@
       </div>
 
       <!-- Cafe 6: St Martin's Coffee Roasters (from image) -->
-      <div class="col-lg-6">
+      <div class="col-md-6 col-lg-4 order-5">
         <div class="card card-coffee">
           <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="St Martin's Coffee Roasters">
           <div class="card-body p-4">
@@ -357,6 +364,7 @@
             <p class="card-text text-secondary small">
               Local Leicester roasting icons supplying batch brews and artisan drinks right in the city center.
             </p>
+            <a class="btn btn-link btn-sm p-0 text-decoration-none" href="https://www.google.com/maps/search/?api=1&amp;query=St+Martin%27s+Coffee+Roasters+Leicester" target="_blank" rel="noopener noreferrer">Click here to find out more</a>
 
             <hr class="my-3">
 
@@ -375,8 +383,203 @@
         </div>
       </div>
 
+      <!-- Cafe 7: Bru Coffee & Gelato -->
+      <div class="col-md-6 col-lg-4 order-7">
+        <div class="card card-coffee">
+          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="Coffee served at Bru Coffee and Gelato">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h3 class="h4 card-title fw-bold mb-1">Bru Coffee &amp; Gelato</h3>
+                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Hotel Street, Leicester</span>
+              </div>
+              <span class="badge bg-secondary">4.5 / 5.0</span>
+            </div>
+            <p class="card-text text-secondary small">
+              An independent city-centre stop for coffee, Italian-style treats, and gelato.
+            </p>
+            <hr class="my-3">
+            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+            <div class="d-flex align-items-start mb-2">
+              <div class="review-avatar me-2">NM</div>
+              <div><strong class="small d-block">Nina Moore</strong><p class="small text-muted mb-0">Good coffee and a scoop of gelato makes a lovely afternoon stop.</p></div>
+            </div>
+            <div class="d-flex align-items-start">
+              <div class="review-avatar me-2">JT</div>
+              <div><strong class="small d-block">Jamie Taylor</strong><p class="small text-muted mb-0">Friendly service and plenty of sweet treats to choose from.</p></div>
+            </div>
+            <a class="btn btn-link btn-sm p-0 mt-2 text-decoration-none" href="https://www.google.com/maps/search/?api=1&amp;query=Bru+Coffee+Gelato+Leicester" target="_blank" rel="noopener noreferrer">Click here to find out more</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cafe 8: 200 Degrees Coffee -->
+      <div class="col-md-6 col-lg-4 order-8">
+        <div class="card card-coffee">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="Coffee in a Leicester cafe">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h3 class="h4 card-title fw-bold mb-1">200 Degrees Coffee</h3>
+                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>St Martin's Square, Leicester</span>
+              </div>
+              <span class="badge bg-secondary">4.6 / 5.0</span>
+            </div>
+            <p class="card-text text-secondary small">
+              A city-centre coffee bar from the independent UK roaster, serving espresso and filter coffee.
+            </p>
+            <hr class="my-3">
+            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+            <div class="d-flex align-items-start mb-2">
+              <div class="review-avatar me-2">CH</div>
+              <div><strong class="small d-block">Callum Hughes</strong><p class="small text-muted mb-0">Consistently good coffee and a handy place to meet in town.</p></div>
+            </div>
+            <div class="d-flex align-items-start">
+              <div class="review-avatar me-2">AR</div>
+              <div><strong class="small d-block">Amira Rahman</strong><p class="small text-muted mb-0">The filter options are worth trying if you have a little time.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cafe 9: The Coffee Counter -->
+      <div class="col-md-6 col-lg-4 order-9">
+        <div class="card card-coffee">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="Coffee at The Coffee Counter">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h3 class="h4 card-title fw-bold mb-1">The Coffee Counter</h3>
+                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Leicester city centre</span>
+              </div>
+              <span class="badge bg-secondary">4.4 / 5.0</span>
+            </div>
+            <p class="card-text text-secondary small">
+              A compact city-centre coffee stop for a quick espresso or a takeaway cup between errands.
+            </p>
+            <hr class="my-3">
+            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+            <div class="d-flex align-items-start mb-2">
+              <div class="review-avatar me-2">PD</div>
+              <div><strong class="small d-block">Priya Desai</strong><p class="small text-muted mb-0">Quick service and a smooth espresso when I am on the go.</p></div>
+            </div>
+            <div class="d-flex align-items-start">
+              <div class="review-avatar me-2">BH</div>
+              <div><strong class="small d-block">Ben Hall</strong><p class="small text-muted mb-0">A convenient stop with a friendly atmosphere.</p></div>
+            </div>
+            <a class="btn btn-link btn-sm p-0 mt-2 text-decoration-none" href="https://www.google.com/maps/search/?api=1&amp;query=The+Coffee+Counter+Leicester" target="_blank" rel="noopener noreferrer">Click here to find out more</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cafe 10: Cafe Mbriki -->
+      <div class="col-md-6 col-lg-4 order-10">
+        <div class="card card-coffee">
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="Coffee served at Cafe Mbriki">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h3 class="h4 card-title fw-bold mb-1">Cafe Mbriki</h3>
+                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Leicester</span>
+              </div>
+              <span class="badge bg-secondary">4.3 / 5.0</span>
+            </div>
+            <p class="card-text text-secondary small">
+              A relaxed local cafe to pause for a coffee and a bite to eat.
+            </p>
+            <hr class="my-3">
+            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+            <div class="d-flex align-items-start mb-2">
+              <div class="review-avatar me-2">LC</div>
+              <div><strong class="small d-block">Luca Conti</strong><p class="small text-muted mb-0">A welcoming place for a coffee and a catch-up.</p></div>
+            </div>
+            <div class="d-flex align-items-start">
+              <div class="review-avatar me-2">FS</div>
+              <div><strong class="small d-block">Farah Shah</strong><p class="small text-muted mb-0">Relaxed atmosphere and a nice selection of refreshments.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cafe 11: The Tiny Bakery -->
+      <div class="col-md-6 col-lg-4 order-11">
+        <div class="card card-coffee">
+          <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="Coffee and pastries at The Tiny Bakery">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h3 class="h4 card-title fw-bold mb-1">The Tiny Bakery</h3>
+                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Leicester</span>
+              </div>
+              <span class="badge bg-secondary">4.7 / 5.0</span>
+            </div>
+            <p class="card-text text-secondary small">
+              A neighbourhood bakery-cafe pairing coffee with freshly baked treats.
+            </p>
+            <hr class="my-3">
+            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+            <div class="d-flex align-items-start mb-2">
+              <div class="review-avatar me-2">GW</div>
+              <div><strong class="small d-block">Grace Wilson</strong><p class="small text-muted mb-0">The pastries are lovely with a cappuccino.</p></div>
+            </div>
+            <div class="d-flex align-items-start">
+              <div class="review-avatar me-2">IK</div>
+              <div><strong class="small d-block">Imran Khan</strong><p class="small text-muted mb-0">A cosy stop for a coffee and something freshly baked.</p></div>
+            </div>
+            <a class="btn btn-link btn-sm p-0 mt-2 text-decoration-none" href="https://www.google.com/maps/search/?api=1&amp;query=The+Tiny+Bakery+Leicester" target="_blank" rel="noopener noreferrer">Click here to find out more</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cafe 12: Herb -->
+      <div class="col-md-6 col-lg-4 order-12">
+        <div class="card card-coffee">
+          <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80" class="coffee-img" alt="Coffee at Herb">
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-start mb-2">
+              <div>
+                <h3 class="h4 card-title fw-bold mb-1">Herb</h3>
+                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Leicester city centre</span>
+              </div>
+              <span class="badge bg-secondary">4.5 / 5.0</span>
+            </div>
+            <p class="card-text text-secondary small">
+              A city-centre cafe and kitchen with coffee alongside a menu of plant-focused food.
+            </p>
+            <hr class="my-3">
+            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+            <div class="d-flex align-items-start mb-2">
+              <div class="review-avatar me-2">ES</div>
+              <div><strong class="small d-block">Ethan Scott</strong><p class="small text-muted mb-0">A good place to take a break and enjoy a coffee.</p></div>
+            </div>
+            <div class="d-flex align-items-start">
+              <div class="review-avatar me-2">RP</div>
+              <div><strong class="small d-block">Ruby Patel</strong><p class="small text-muted mb-0">Friendly service and a menu with plenty of choice.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </main>
+
+  <div class="modal fade" id="ownerNoteModal" tabindex="-1" aria-labelledby="ownerNoteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title fs-5" id="ownerNoteModalLabel">A note from the owner</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="mb-2">Thanks for stopping by my favourite Leicester coffee spot.</p>
+          <p class="fw-bold fs-4 mb-0">FLAG{Mokha}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Hidden assets link reference (steganography challenge hook) -->
   <footer class="py-4 text-center">
