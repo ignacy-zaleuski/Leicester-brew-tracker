@@ -1,644 +1,686 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Leicester Specialty Coffee Guide</title>
-  <!-- Bootstrap 5 CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
-  <style>
-    :root {
-      --coffee-primary: #3d2314;
-      --coffee-accent: #c08552;
-      --coffee-bg: #fdfbf7;
-    }
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Leicester Specialty Coffee Guide</title>
+		<!-- Bootstrap 5 CSS -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+		<!-- Bootstrap Icons -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+		<style>
+			:root {
+				--coffee-primary: #3d2314;
+				--coffee-accent: #c08552;
+				--coffee-bg: #fdfbf7;
+			}
 
-    body {
-      background-color: var(--coffee-bg);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      color: #2b2b2b;
-    }
+			body {
+				background-color: var(--coffee-bg);
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+				color: #2b2b2b;
+			}
 
-    .navbar {
-      background-color: var(--coffee-primary);
-    }
+			.navbar {
+				background-color: var(--coffee-primary);
+			}
 
-    .hero-section {
-      background: linear-gradient(rgba(61, 35, 20, 0.75), rgba(61, 35, 20, 0.75)), 
-                  url('https://images.pexels.com/photos/30948318/pexels-photo-30948318/free-photo-of-cozy-indoor-coffee-shop-interior-with-display.jpeg?h=1000&w=1500&fit=crop') center/cover no-repeat;
-      color: white;
-      padding: 70px 0;
-    }
+			.hero-section {
+				background:
+					linear-gradient(rgba(61, 35, 20, 0.75), rgba(61, 35, 20, 0.75)),
+					url("https://images.pexels.com/photos/30948318/pexels-photo-30948318/free-photo-of-cozy-indoor-coffee-shop-interior-with-display.jpeg?h=1000&w=1500&fit=crop") center/cover no-repeat;
+				color: white;
+				padding: 70px 0;
+			}
 
-    .card-coffee {
-      border: none;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease-in-out;
-      background-color: #ffffff;
-      height: 100%;
-      position: relative;
-    }
+			.card-coffee {
+				border: none;
+				border-radius: 12px;
+				overflow: hidden;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+				transition: transform 0.2s ease-in-out;
+				background-color: #ffffff;
+				height: 100%;
+				position: relative;
+			}
 
-    .card-coffee:hover {
-      transform: translateY(-5px);
-    }
+			.card-coffee:hover {
+				transform: translateY(-5px);
+			}
 
-    .coffee-img {
-      height: 220px;
-      object-fit: cover;
-      width: 100%;
-    }
+			.coffee-img {
+				height: 220px;
+				object-fit: cover;
+				width: 100%;
+			}
 
-    .badge-creator {
-      background-color: #f3e9dc;
-      color: var(--coffee-primary);
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding: 2px 8px;
-      border-radius: 4px;
-    }
+			.tasting-note {
+				background: linear-gradient(120deg, #fff 0%, #f4e8da 100%);
+				border: 1px solid #ead8c4;
+				border-left: 5px solid var(--coffee-accent);
+				border-radius: 12px;
+				box-shadow: 0 4px 15px rgba(61, 35, 20, 0.06);
+			}
 
-    .review-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background-color: var(--coffee-accent);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      font-size: 0.8rem;
-      flex-shrink: 0;
-    }
+			.tasting-note-tag {
+				background-color: #fff;
+				border: 1px solid #ead8c4;
+				border-radius: 999px;
+				color: var(--coffee-primary);
+				display: inline-block;
+				font-size: 0.75rem;
+				font-weight: 600;
+				padding: 0.3rem 0.7rem;
+			}
 
-    .order-6 { order: 6 !important; }
-    .order-7 { order: 7 !important; }
-    .order-8 { order: 8 !important; }
-    .order-9 { order: 9 !important; }
-    .order-10 { order: 10 !important; }
-    .order-11 { order: 11 !important; }
-    .order-12 { order: 12 !important; }
+			.badge-creator {
+				background-color: #f3e9dc;
+				color: var(--coffee-primary);
+				font-size: 0.75rem;
+				font-weight: 700;
+				padding: 2px 8px;
+				border-radius: 4px;
+			}
 
-    footer {
-      background-color: var(--coffee-primary);
-      color: #d4c5b9;
-    }
-  </style>
-</head>
-<body>
+			.review-avatar {
+				width: 36px;
+				height: 36px;
+				border-radius: 50%;
+				background-color: var(--coffee-accent);
+				color: white;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: bold;
+				font-size: 0.8rem;
+				flex-shrink: 0;
+			}
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">
-        <i class="bi bi-cup-hot-fill me-2" style="color: var(--coffee-accent);"></i>Leicester Brew Tracker
-      </a>
-      <a href="https://github.com/ignacy-zaleuski" target="_blank" class="navbar-text text-white-50 small text-decoration-none">
-        <i class="bi bi-github me-1"></i>ignacy-zaleuski
-      </a>
-    </div>
-  </nav>
+			.order-6 {
+				order: 6 !important;
+			}
+			.order-7 {
+				order: 7 !important;
+			}
+			.order-8 {
+				order: 8 !important;
+			}
+			.order-9 {
+				order: 9 !important;
+			}
+			.order-10 {
+				order: 10 !important;
+			}
+			.order-11 {
+				order: 11 !important;
+			}
+			.order-12 {
+				order: 12 !important;
+			}
 
-  <!-- Hero Section -->
-  <header class="hero-section text-center">
-    <div class="container">
-      <h1 class="fw-bold display-5">Leicester Independent Coffee Guide</h1>
-      <p class="lead max-w-600 mx-auto text-light">A fictional guide to imagined coffee houses around Leicester.</p>
-      <p class="small text-light mb-0">All café names, locations, reviews and ratings are fictional and created for this project.</p>
-    </div>
-  </header>
+			footer {
+				background-color: var(--coffee-primary);
+				color: #d4c5b9;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+			<div class="container">
+				<a class="navbar-brand fw-bold" href="#"> <i class="bi bi-cup-hot-fill me-2" style="color: var(--coffee-accent)"></i>Leicester Brew Tracker </a>
+				<a href="https://github.com/ignacy-zaleuski" target="_blank" class="navbar-text text-white-50 small text-decoration-none"> <i class="bi bi-github me-1"></i>ignacy-zaleuski </a>
+			</div>
+		</nav>
 
-  <!-- Main Content -->
-  <main class="container my-5">
-    <div class="row g-4">
+		<!-- Hero Section -->
+		<header class="hero-section text-center">
+			<div class="container">
+				<h1 class="fw-bold display-5">Leicester Independent Coffee Guide</h1>
+				<p class="lead max-w-600 mx-auto text-light">A fictional guide to imagined coffee houses around Leicester.</p>
+				<p class="small text-light mb-0">All café names, locations, reviews and ratings are fictional and created for this project.</p>
+			</div>
+		</header>
 
-      <!-- Cafe 1: Fable & Finch Coffee -->
-      <div class="col-md-6 col-lg-4 order-1">
-        <div class="card card-coffee">
-          <img src="https://images.pexels.com/photos/28298535/pexels-photo-28298535/free-photo-of-coffee-break.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee break at Fable and Finch Coffee">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">Fable &amp; Finch Coffee</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Glasshouse Walk, Leicester</span>
-              </div>
-              <span class="badge bg-secondary">4.6 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              A cosy imagined espresso bar known in the story for its rotating single-origin brews and cardamom buns.
-            </p>
-            <button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
+		<section class="container mt-4" aria-labelledby="tasting-note-title">
+			<div class="tasting-note p-4 p-md-5">
+				<div class="row align-items-center g-3">
+					<div class="col-lg-8">
+						<p class="text-uppercase small fw-bold mb-2" style="color: var(--coffee-accent); letter-spacing: 0.12em">From the tasting notebook</p>
+						<h2 class="h3 fw-bold mb-2" id="tasting-note-title">A fresh round of local favourites</h2>
+						<p class="text-secondary mb-0">The guide is being refreshed with new fictional neighbourhood spots, seasonal pours, and notes from the people behind the counter.</p>
+					</div>
+					<div class="col-lg-4">
+						<div class="d-flex flex-wrap gap-2 justify-content-lg-end" aria-label="Latest guide updates">
+							<span class="tasting-note-tag">New café notes</span>
+							<span class="tasting-note-tag">Seasonal roasts</span>
+							<span class="tasting-note-tag">Weekend pours</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-            <hr class="my-3">
+		<!-- Main Content -->
+		<main class="container my-5">
+			<div class="row g-4">
+				<!-- Cafe 1: Fable & Finch Coffee -->
+				<div class="col-md-6 col-lg-4 order-1">
+					<div class="card card-coffee">
+						<img src="https://images.pexels.com/photos/28298535/pexels-photo-28298535/free-photo-of-coffee-break.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee break at Fable and Finch Coffee" />
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<div>
+									<h3 class="h4 card-title fw-bold mb-1">Fable &amp; Finch Coffee</h3>
+									<span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Glasshouse Walk, Leicester</span>
+								</div>
+								<span class="badge bg-secondary">4.6 / 5.0</span>
+							</div>
+							<p class="card-text text-secondary small">A cosy imagined espresso bar known in the story for its rotating single-origin brews and cardamom buns.</p>
+							<button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
 
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+							<hr class="my-3" />
 
-            <!-- Reviewer: Jane De Jesus -->
-            <div class="d-flex align-items-start mb-2">
-              <div class="review-avatar me-2">JJ</div>
-              <div>
-                <strong class="small d-block">Jane De Jesus</strong>
-                <p class="small text-muted mb-0">Their oat milk lattes are amazing! Love stopping by here.</p>
-              </div>
-            </div>
+							<h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
 
-            <!-- Reviewer: Franciszek Villegas -->
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">FV</div>
-              <div>
-                <strong class="small d-block">Franciszek Villegas</strong>
-                <p class="small text-muted mb-0">Very friendly barista and solid drip coffee options.</p>
-              </div>
-            </div>
+							<!-- Reviewer: Jane De Jesus -->
+							<div class="d-flex align-items-start mb-2">
+								<div class="review-avatar me-2">JJ</div>
+								<div>
+									<strong class="small d-block">Jane De Jesus</strong>
+									<p class="small text-muted mb-0">Their oat milk lattes are amazing! Love stopping by here.</p>
+								</div>
+							</div>
 
-            <div class="d-flex align-items-start mt-2">
-              <div class="review-avatar me-2">MK</div>
-              <div>
-                <strong class="small d-block">Maya Khan</strong>
-                <p class="small text-muted mb-0">A great little place to pick up a flat white on the way into town.</p>
-              </div>
-            </div>
+							<!-- Reviewer: Franciszek Villegas -->
+							<div class="d-flex align-items-start">
+								<div class="review-avatar me-2">FV</div>
+								<div>
+									<strong class="small d-block">Franciszek Villegas</strong>
+									<p class="small text-muted mb-0">Very friendly barista and solid drip coffee options.</p>
+								</div>
+							</div>
 
-          </div>
-        </div>
-      </div>
+							<div class="d-flex align-items-start mt-2">
+								<div class="review-avatar me-2">MK</div>
+								<div>
+									<strong class="small d-block">Maya Khan</strong>
+									<p class="small text-muted mb-0">A great little place to pick up a flat white on the way into town.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-      <!-- Cafe: Mokha Lantern Coffee -->
-      <div class="col-md-6 col-lg-4 order-6">
-        <div class="card card-coffee">
-          <img src="https://images.pexels.com/photos/4913342/pexels-photo-4913342.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Cappuccino at Mokha Lantern Coffee">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">Mokha Lantern Coffee</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Copper Lane, Leicester</span>
-              </div>
-              <span class="badge bg-secondary">4.9 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              An imagined neighbourhood roastery where the fictional guide's owner starts each morning with a carefully poured flat white.
-            </p>
+				<!-- Cafe: Mokha Lantern Coffee -->
+				<div class="col-md-6 col-lg-4 order-6">
+					<div class="card card-coffee">
+						<img src="https://images.pexels.com/photos/4913342/pexels-photo-4913342.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Cappuccino at Mokha Lantern Coffee" />
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<div>
+									<h3 class="h4 card-title fw-bold mb-1">Mokha Lantern Coffee</h3>
+									<span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Copper Lane, Leicester</span>
+								</div>
+								<span class="badge bg-secondary">4.9 / 5.0</span>
+							</div>
+							<p class="card-text text-secondary small">An imagined neighbourhood roastery where the fictional guide's owner starts each morning with a carefully poured flat white.</p>
 
-            <hr class="my-3">
+							<hr class="my-3" />
 
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+							<h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
 
-            <div class="d-flex align-items-start mb-2">
-              <div class="review-avatar me-2">DB</div>
-              <div>
-                <strong class="small d-block">Ignacy Zaleuski <span class="text-muted fw-normal">· Owner</span></strong>
-                <p class="small text-muted mb-0">
-                  Hands down my absolute favourite spot in Leicester. The pourover options are incredible. I stop by daily on weekdays before heading into work—can't start the morning without a flat white from here.
-                </p>
-                <button type="button" class="btn btn-link btn-sm p-0 mt-1 text-decoration-none" data-bs-toggle="modal" data-bs-target="#ownerNoteModal">
-                  Click here to find out more
-                </button>
-              </div>
-            </div>
+							<div class="d-flex align-items-start mb-2">
+								<div class="review-avatar me-2">DB</div>
+								<div>
+									<strong class="small d-block">Ignacy Zaleuski <span class="text-muted fw-normal">· Owner</span></strong>
+									<p class="small text-muted mb-0">Hands down my absolute favourite spot in Leicester. The pourover options are incredible. I stop by daily on weekdays before heading into work—can't start the morning without a flat white from here.</p>
+									<button type="button" class="btn btn-link btn-sm p-0 mt-1 text-decoration-none" data-bs-toggle="modal" data-bs-target="#ownerNoteModal">Click here to find out more</button>
+								</div>
+							</div>
 
-            <div class="d-flex align-items-start mb-2">
-              <div class="review-avatar me-2">AC</div>
-              <div>
-                <strong class="small d-block">Aveson Carvalho</strong>
-                <p class="small text-muted mb-0">Great ambiance and fast Wi-Fi. Always a smooth roast.</p>
-              </div>
-            </div>
+							<div class="d-flex align-items-start mb-2">
+								<div class="review-avatar me-2">AC</div>
+								<div>
+									<strong class="small d-block">Aveson Carvalho</strong>
+									<p class="small text-muted mb-0">Great ambiance and fast Wi-Fi. Always a smooth roast.</p>
+								</div>
+							</div>
 
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">AC</div>
-              <div>
-                <strong class="small d-block">Aveson Carvalho</strong>
-                <p class="small text-muted mb-0">Excellent customer service and top quality beans roasted on site.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+							<div class="d-flex align-items-start">
+								<div class="review-avatar me-2">AC</div>
+								<div>
+									<strong class="small d-block">Aveson Carvalho</strong>
+									<p class="small text-muted mb-0">Excellent customer service and top quality beans roasted on site.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-      <!-- Cafe 3: Willowglass Coffee House -->
-      <div class="col-md-6 col-lg-4 order-2">
-        <div class="card card-coffee">
-          <img src="https://images.pexels.com/photos/30948318/pexels-photo-30948318/free-photo-of-cozy-indoor-coffee-shop-interior-with-display.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Interior of Willowglass Coffee House">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">Willowglass Coffee House</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Orchard Quarter, Leicester</span>
-              </div>
-              <span class="badge bg-secondary">4.5 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              A fictional community café with window seats, local art and a menu that changes with the seasons.
-            </p>
-            <button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
+				<!-- Cafe 3: Willowglass Coffee House -->
+				<div class="col-md-6 col-lg-4 order-2">
+					<div class="card card-coffee">
+						<img src="https://images.pexels.com/photos/30948318/pexels-photo-30948318/free-photo-of-cozy-indoor-coffee-shop-interior-with-display.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Interior of Willowglass Coffee House" />
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<div>
+									<h3 class="h4 card-title fw-bold mb-1">Willowglass Coffee House</h3>
+									<span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Orchard Quarter, Leicester</span>
+								</div>
+								<span class="badge bg-secondary">4.5 / 5.0</span>
+							</div>
+							<p class="card-text text-secondary small">A fictional community café with window seats, local art and a menu that changes with the seasons.</p>
+							<button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
 
-            <hr class="my-3">
+							<hr class="my-3" />
 
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+							<h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
 
-            <!-- Reviewer: Jenith Sunkara -->
-            <div class="d-flex align-items-start mb-2">
-              <div class="review-avatar me-2">JS</div>
-              <div>
-                <strong class="small d-block">Jenith Sunkara</strong>
-                <p class="small text-muted mb-0">Spacious layout and good cause behind the shop. Recommended!</p>
-              </div>
-            </div>
+							<!-- Reviewer: Jenith Sunkara -->
+							<div class="d-flex align-items-start mb-2">
+								<div class="review-avatar me-2">JS</div>
+								<div>
+									<strong class="small d-block">Jenith Sunkara</strong>
+									<p class="small text-muted mb-0">Spacious layout and good cause behind the shop. Recommended!</p>
+								</div>
+							</div>
 
-            <!-- Reviewer: Stanisław Niewiadomski -->
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">SN</div>
-              <div>
-                <strong class="small d-block">Stanisław Niewiadomski</strong>
-                <p class="small text-muted mb-0">Great place to study or catch up on emails over a cappuccino.</p>
-              </div>
-            </div>
-            <div class="d-flex align-items-start mt-2">
-              <div class="review-avatar me-2">OP</div>
-              <div>
-                <strong class="small d-block">Owen Patel</strong>
-                <p class="small text-muted mb-0">Friendly team and a relaxed spot to meet friends.</p>
-              </div>
-            </div>
+							<!-- Reviewer: Stanisław Niewiadomski -->
+							<div class="d-flex align-items-start">
+								<div class="review-avatar me-2">SN</div>
+								<div>
+									<strong class="small d-block">Stanisław Niewiadomski</strong>
+									<p class="small text-muted mb-0">Great place to study or catch up on emails over a cappuccino.</p>
+								</div>
+							</div>
+							<div class="d-flex align-items-start mt-2">
+								<div class="review-avatar me-2">OP</div>
+								<div>
+									<strong class="small d-block">Owen Patel</strong>
+									<p class="small text-muted mb-0">Friendly team and a relaxed spot to meet friends.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-          </div>
-        </div>
-      </div>
+				<!-- Cafe 4: Penny Loaf Roastery -->
+				<div class="col-md-6 col-lg-4 order-3">
+					<div class="card card-coffee">
+						<img src="https://images.pexels.com/photos/16682442/pexels-photo-16682442/free-photo-of-coffee-beans-on-a-counter-top.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee beans at Penny Loaf Roastery" />
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<div>
+									<h3 class="h4 card-title fw-bold mb-1">Penny Loaf Roastery</h3>
+									<span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Foundry Walk, Leicester</span>
+								</div>
+								<span class="badge bg-secondary">4.7 / 5.0</span>
+							</div>
+							<p class="card-text text-secondary small">A fictional small-batch roastery experimenting with chocolatey espresso and bright weekend filter coffees.</p>
+							<button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
 
-      <!-- Cafe 4: Penny Loaf Roastery -->
-      <div class="col-md-6 col-lg-4 order-3">
-        <div class="card card-coffee">
-          <img src="https://images.pexels.com/photos/16682442/pexels-photo-16682442/free-photo-of-coffee-beans-on-a-counter-top.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee beans at Penny Loaf Roastery">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">Penny Loaf Roastery</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Foundry Walk, Leicester</span>
-              </div>
-              <span class="badge bg-secondary">4.7 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              A fictional small-batch roastery experimenting with chocolatey espresso and bright weekend filter coffees.
-            </p>
-            <button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
+							<hr class="my-3" />
 
-            <hr class="my-3">
+							<h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
 
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+							<!-- Reviewer: Aveson Carvalho -->
+							<div class="d-flex align-items-start">
+								<div class="review-avatar me-2">AC</div>
+								<div>
+									<strong class="small d-block">Aveson Carvalho</strong>
+									<p class="small text-muted mb-0">Top tier espresso roasts. Always buy their beans online too.</p>
+								</div>
+							</div>
+							<div class="d-flex align-items-start mt-2">
+								<div class="review-avatar me-2">LW</div>
+								<div>
+									<strong class="small d-block">Leah Watson</strong>
+									<p class="small text-muted mb-0">The espresso has a rich flavour and the staff know their coffee.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-            <!-- Reviewer: Aveson Carvalho -->
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">AC</div>
-              <div>
-                <strong class="small d-block">Aveson Carvalho</strong>
-                <p class="small text-muted mb-0">Top tier espresso roasts. Always buy their beans online too.</p>
-              </div>
-            </div>
-            <div class="d-flex align-items-start mt-2">
-              <div class="review-avatar me-2">LW</div>
-              <div>
-                <strong class="small d-block">Leah Watson</strong>
-                <p class="small text-muted mb-0">The espresso has a rich flavour and the staff know their coffee.</p>
-              </div>
-            </div>
+				<!-- Cafe 5: Ember & Bean -->
+				<div class="col-md-6 col-lg-4 order-4">
+					<div class="card card-coffee">
+						<img src="https://images.pexels.com/photos/6747870/pexels-photo-6747870.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee at Ember and Bean" />
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<div>
+									<h3 class="h4 card-title fw-bold mb-1">Ember &amp; Bean</h3>
+									<span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Riverside Quarter, Leicester</span>
+								</div>
+								<span class="badge bg-secondary">4.4 / 5.0</span>
+							</div>
+							<p class="card-text text-secondary small">A fictional roastery café with a relaxed counter, seasonal beans and slow-brewed coffee.</p>
+							<button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
 
-          </div>
-        </div>
-      </div>
+							<hr class="my-3" />
 
-      <!-- Cafe 5: Ember & Bean -->
-      <div class="col-md-6 col-lg-4 order-4">
-        <div class="card card-coffee">
-          <img src="https://images.pexels.com/photos/6747870/pexels-photo-6747870.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee at Ember and Bean">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">Ember &amp; Bean</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Riverside Quarter, Leicester</span>
-              </div>
-              <span class="badge bg-secondary">4.4 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              A fictional roastery café with a relaxed counter, seasonal beans and slow-brewed coffee.
-            </p>
-            <button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
+							<h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
 
-            <hr class="my-3">
+							<!-- Reviewer: Dan Borrows -->
+							<div class="d-flex align-items-start">
+								<div class="review-avatar me-2">DB</div>
+								<div>
+									<strong class="small d-block">Dan Burrows</strong>
+									<p class="small text-muted mb-0">Really good pour overs here if you like light roast profiles.</p>
+								</div>
+							</div>
+							<div class="d-flex align-items-start mt-2">
+								<div class="review-avatar me-2">ER</div>
+								<div>
+									<strong class="small d-block">Ella Roberts</strong>
+									<p class="small text-muted mb-0">Lovely seasonal beans, especially for a slow weekend brew.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+				<!-- Cafe 6: The Quiet Cup -->
+				<div class="col-md-6 col-lg-4 order-5">
+					<div class="card card-coffee">
+						<img src="https://images.pexels.com/photos/27589853/pexels-photo-27589853/free-photo-of-two-cups-with-toothpicks-on-a-wooden-table.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee cups at The Quiet Cup" />
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<div>
+									<h3 class="h4 card-title fw-bold mb-1">The Quiet Cup</h3>
+									<span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Lantern Yard, Leicester</span>
+								</div>
+								<span class="badge bg-secondary">4.6 / 5.0</span>
+							</div>
+							<p class="card-text text-secondary small">An imaginary hideaway for batch brews, notebooks and an unhurried afternoon.</p>
+							<button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
 
-            <!-- Reviewer: Dan Borrows -->
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">DB</div>
-              <div>
-                <strong class="small d-block">Dan Burrows</strong>
-                <p class="small text-muted mb-0">Really good pour overs here if you like light roast profiles.</p>
-              </div>
-            </div>
-            <div class="d-flex align-items-start mt-2">
-              <div class="review-avatar me-2">ER</div>
-              <div>
-                <strong class="small d-block">Ella Roberts</strong>
-                <p class="small text-muted mb-0">Lovely seasonal beans, especially for a slow weekend brew.</p>
-              </div>
-            </div>
+							<hr class="my-3" />
 
-          </div>
-        </div>
-      </div>
+							<h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
 
-      <!-- Cafe 6: The Quiet Cup -->
-      <div class="col-md-6 col-lg-4 order-5">
-        <div class="card card-coffee">
-          <img src="https://images.pexels.com/photos/27589853/pexels-photo-27589853/free-photo-of-two-cups-with-toothpicks-on-a-wooden-table.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee cups at The Quiet Cup">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">The Quiet Cup</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Lantern Yard, Leicester</span>
-              </div>
-              <span class="badge bg-secondary">4.6 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              An imaginary hideaway for batch brews, notebooks and an unhurried afternoon.
-            </p>
-            <button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
+							<!-- Reviewer: Jane De Jesus -->
+							<div class="d-flex align-items-start">
+								<div class="review-avatar me-2">JJ</div>
+								<div>
+									<strong class="small d-block">Jane De Jesus</strong>
+									<p class="small text-muted mb-0">A classic Leicester favorite. Great atmosphere in the square.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-            <hr class="my-3">
+				<!-- Cafe 7: Juniper Cup Cafe -->
+				<div class="col-md-6 col-lg-4 order-7">
+					<div class="card card-coffee">
+						<img src="https://images.pexels.com/photos/28298535/pexels-photo-28298535/free-photo-of-coffee-break.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee at Juniper Cup Cafe" />
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<div>
+									<h3 class="h4 card-title fw-bold mb-1">Juniper Cup Café</h3>
+									<span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Market Quarter, Leicester</span>
+								</div>
+								<span class="badge bg-secondary">4.5 / 5.0</span>
+							</div>
+							<p class="card-text text-secondary small">A made-up café pairing smooth espresso with a rotating shelf of small-batch cakes.</p>
+							<hr class="my-3" />
+							<h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+							<div class="d-flex align-items-start mb-2">
+								<div class="review-avatar me-2">NM</div>
+								<div>
+									<strong class="small d-block">Nina Moore</strong>
+									<p class="small text-muted mb-0">Good coffee and a scoop of gelato makes a lovely afternoon stop.</p>
+								</div>
+							</div>
+							<div class="d-flex align-items-start">
+								<div class="review-avatar me-2">JT</div>
+								<div>
+									<strong class="small d-block">Jamie Taylor</strong>
+									<p class="small text-muted mb-0">Friendly service and plenty of sweet treats to choose from.</p>
+								</div>
+							</div>
+							<button type="button" class="btn btn-link btn-sm p-0 mt-2 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
+						</div>
+					</div>
+				</div>
 
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+				<!-- Cafe 8: Morrow Coffee Works -->
+				<div class="col-md-6 col-lg-4 order-8">
+					<div class="card card-coffee">
+						<img src="https://images.pexels.com/photos/4913342/pexels-photo-4913342.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Cappuccino at Morrow Coffee Works" />
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<div>
+									<h3 class="h4 card-title fw-bold mb-1">Morrow Coffee Works</h3>
+									<span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Bellfoundry Quarter, Leicester</span>
+								</div>
+								<span class="badge bg-secondary">4.6 / 5.0</span>
+							</div>
+							<p class="card-text text-secondary small">An imaginary neighbourhood bar serving espresso, filter coffee and a signature orange mocha.</p>
+							<button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
+							<hr class="my-3" />
+							<h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+							<div class="d-flex align-items-start mb-2">
+								<div class="review-avatar me-2">CH</div>
+								<div>
+									<strong class="small d-block">Callum Hughes</strong>
+									<p class="small text-muted mb-0">Consistently good coffee and a handy place to meet in town.</p>
+								</div>
+							</div>
+							<div class="d-flex align-items-start">
+								<div class="review-avatar me-2">AR</div>
+								<div>
+									<strong class="small d-block">Amira Rahman</strong>
+									<p class="small text-muted mb-0">The filter options are worth trying if you have a little time.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-            <!-- Reviewer: Jane De Jesus -->
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">JJ</div>
-              <div>
-                <strong class="small d-block">Jane De Jesus</strong>
-                <p class="small text-muted mb-0">A classic Leicester favorite. Great atmosphere in the square.</p>
-              </div>
-            </div>
+				<!-- Cafe 9: Little Quay Espresso -->
+				<div class="col-md-6 col-lg-4 order-9">
+					<div class="card card-coffee">
+						<img src="https://images.pexels.com/photos/16682442/pexels-photo-16682442/free-photo-of-coffee-beans-on-a-counter-top.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee beans at Little Quay Espresso" />
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<div>
+									<h3 class="h4 card-title fw-bold mb-1">Little Quay Espresso</h3>
+									<span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Silverleaf Walk, Leicester</span>
+								</div>
+								<span class="badge bg-secondary">4.4 / 5.0</span>
+							</div>
+							<p class="card-text text-secondary small">A fictional espresso window with a tiny menu and beans roasted just for the story.</p>
+							<hr class="my-3" />
+							<h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+							<div class="d-flex align-items-start mb-2">
+								<div class="review-avatar me-2">PD</div>
+								<div>
+									<strong class="small d-block">Priya Desai</strong>
+									<p class="small text-muted mb-0">Quick service and a smooth espresso when I am on the go.</p>
+								</div>
+							</div>
+							<div class="d-flex align-items-start">
+								<div class="review-avatar me-2">BH</div>
+								<div>
+									<strong class="small d-block">Ben Hall</strong>
+									<p class="small text-muted mb-0">A convenient stop with a friendly atmosphere.</p>
+								</div>
+							</div>
+							<button type="button" class="btn btn-link btn-sm p-0 mt-2 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
+						</div>
+					</div>
+				</div>
 
-          </div>
-        </div>
-      </div>
+				<!-- Cafe 10: Cedar & Steam -->
+				<div class="col-md-6 col-lg-4 order-10">
+					<div class="card card-coffee">
+						<img src="https://images.pexels.com/photos/6747870/pexels-photo-6747870.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee at Cedar and Steam" />
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<div>
+									<h3 class="h4 card-title fw-bold mb-1">Cedar &amp; Steam</h3>
+									<span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Glasshouse Lane, Leicester</span>
+								</div>
+								<span class="badge bg-secondary">4.3 / 5.0</span>
+							</div>
+							<p class="card-text text-secondary small">A fictional café with leafy window boxes and a short menu of comforting drinks.</p>
+							<button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
+							<hr class="my-3" />
+							<h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+							<div class="d-flex align-items-start mb-2">
+								<div class="review-avatar me-2">LC</div>
+								<div>
+									<strong class="small d-block">Luca Conti</strong>
+									<p class="small text-muted mb-0">A welcoming place for a coffee and a catch-up.</p>
+								</div>
+							</div>
+							<div class="d-flex align-items-start">
+								<div class="review-avatar me-2">FS</div>
+								<div>
+									<strong class="small d-block">Farah Shah</strong>
+									<p class="small text-muted mb-0">Relaxed atmosphere and a nice selection of refreshments.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-      <!-- Cafe 7: Juniper Cup Cafe -->
-      <div class="col-md-6 col-lg-4 order-7">
-        <div class="card card-coffee">
-          <img src="https://images.pexels.com/photos/28298535/pexels-photo-28298535/free-photo-of-coffee-break.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee at Juniper Cup Cafe">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">Juniper Cup Café</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Market Quarter, Leicester</span>
-              </div>
-              <span class="badge bg-secondary">4.5 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              A made-up café pairing smooth espresso with a rotating shelf of small-batch cakes.
-            </p>
-            <hr class="my-3">
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
-            <div class="d-flex align-items-start mb-2">
-              <div class="review-avatar me-2">NM</div>
-              <div><strong class="small d-block">Nina Moore</strong><p class="small text-muted mb-0">Good coffee and a scoop of gelato makes a lovely afternoon stop.</p></div>
-            </div>
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">JT</div>
-              <div><strong class="small d-block">Jamie Taylor</strong><p class="small text-muted mb-0">Friendly service and plenty of sweet treats to choose from.</p></div>
-            </div>
-            <button type="button" class="btn btn-link btn-sm p-0 mt-2 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
-          </div>
-        </div>
-      </div>
+				<!-- Cafe 11: Bramble & Bun -->
+				<div class="col-md-6 col-lg-4 order-11">
+					<div class="card card-coffee">
+						<img src="https://images.pexels.com/photos/27589853/pexels-photo-27589853/free-photo-of-two-cups-with-toothpicks-on-a-wooden-table.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee at Bramble and Bun" />
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<div>
+									<h3 class="h4 card-title fw-bold mb-1">Bramble &amp; Bun</h3>
+									<span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Orchard Walk, Leicester</span>
+								</div>
+								<span class="badge bg-secondary">4.7 / 5.0</span>
+							</div>
+							<p class="card-text text-secondary small">An imagined bakehouse serving simple espresso alongside buns inspired by the local hedgerows.</p>
+							<hr class="my-3" />
+							<h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+							<div class="d-flex align-items-start mb-2">
+								<div class="review-avatar me-2">GW</div>
+								<div>
+									<strong class="small d-block">Grace Wilson</strong>
+									<p class="small text-muted mb-0">The pastries are lovely with a cappuccino.</p>
+								</div>
+							</div>
+							<div class="d-flex align-items-start">
+								<div class="review-avatar me-2">IK</div>
+								<div>
+									<strong class="small d-block">Imran Khan</strong>
+									<p class="small text-muted mb-0">A cosy stop for a coffee and something freshly baked.</p>
+								</div>
+							</div>
+							<button type="button" class="btn btn-link btn-sm p-0 mt-2 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
+						</div>
+					</div>
+				</div>
 
-      <!-- Cafe 8: Morrow Coffee Works -->
-      <div class="col-md-6 col-lg-4 order-8">
-        <div class="card card-coffee">
-          <img src="https://images.pexels.com/photos/4913342/pexels-photo-4913342.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Cappuccino at Morrow Coffee Works">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">Morrow Coffee Works</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Bellfoundry Quarter, Leicester</span>
-              </div>
-              <span class="badge bg-secondary">4.6 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              An imaginary neighbourhood bar serving espresso, filter coffee and a signature orange mocha.
-            </p>
-            <button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
-            <hr class="my-3">
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
-            <div class="d-flex align-items-start mb-2">
-              <div class="review-avatar me-2">CH</div>
-              <div><strong class="small d-block">Callum Hughes</strong><p class="small text-muted mb-0">Consistently good coffee and a handy place to meet in town.</p></div>
-            </div>
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">AR</div>
-              <div><strong class="small d-block">Amira Rahman</strong><p class="small text-muted mb-0">The filter options are worth trying if you have a little time.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
+				<!-- Cafe 12: Common Thread Cafe -->
+				<div class="col-md-6 col-lg-4 order-12">
+					<div class="card card-coffee">
+						<img src="https://images.pexels.com/photos/30948318/pexels-photo-30948318/free-photo-of-cozy-indoor-coffee-shop-interior-with-display.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee at Common Thread Cafe" />
+						<div class="card-body p-4">
+							<div class="d-flex justify-content-between align-items-start mb-2">
+								<div>
+									<h3 class="h4 card-title fw-bold mb-1">Common Thread Café</h3>
+									<span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Mothwing Quarter, Leicester</span>
+								</div>
+								<span class="badge bg-secondary">4.5 / 5.0</span>
+							</div>
+							<p class="card-text text-secondary small">A fictional café and kitchen where coffee comes with a generous side of quiet conversation.</p>
+							<button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
+							<hr class="my-3" />
+							<h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
+							<div class="d-flex align-items-start mb-2">
+								<div class="review-avatar me-2">ES</div>
+								<div>
+									<strong class="small d-block">Ethan Scott</strong>
+									<p class="small text-muted mb-0">A good place to take a break and enjoy a coffee.</p>
+								</div>
+							</div>
+							<div class="d-flex align-items-start">
+								<div class="review-avatar me-2">RP</div>
+								<div>
+									<strong class="small d-block">Ruby Patel</strong>
+									<p class="small text-muted mb-0">Friendly service and a menu with plenty of choice.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
 
-      <!-- Cafe 9: Little Quay Espresso -->
-      <div class="col-md-6 col-lg-4 order-9">
-        <div class="card card-coffee">
-          <img src="https://images.pexels.com/photos/16682442/pexels-photo-16682442/free-photo-of-coffee-beans-on-a-counter-top.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee beans at Little Quay Espresso">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">Little Quay Espresso</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Silverleaf Walk, Leicester</span>
-              </div>
-              <span class="badge bg-secondary">4.4 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              A fictional espresso window with a tiny menu and beans roasted just for the story.
-            </p>
-            <hr class="my-3">
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
-            <div class="d-flex align-items-start mb-2">
-              <div class="review-avatar me-2">PD</div>
-              <div><strong class="small d-block">Priya Desai</strong><p class="small text-muted mb-0">Quick service and a smooth espresso when I am on the go.</p></div>
-            </div>
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">BH</div>
-              <div><strong class="small d-block">Ben Hall</strong><p class="small text-muted mb-0">A convenient stop with a friendly atmosphere.</p></div>
-            </div>
-            <button type="button" class="btn btn-link btn-sm p-0 mt-2 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
-          </div>
-        </div>
-      </div>
+		<div class="modal fade" id="ownerNoteModal" tabindex="-1" aria-labelledby="ownerNoteModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title fs-5" id="ownerNoteModalLabel">A note from the owner</h2>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body text-center">
+						<p class="mb-2">Thanks for stopping by my favourite Leicester coffee spot.</p>
+						<p class="fw-bold fs-4 mb-0">FLAG{Mokha}</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
-      <!-- Cafe 10: Cedar & Steam -->
-      <div class="col-md-6 col-lg-4 order-10">
-        <div class="card card-coffee">
-          <img src="https://images.pexels.com/photos/6747870/pexels-photo-6747870.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee at Cedar and Steam">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">Cedar &amp; Steam</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Glasshouse Lane, Leicester</span>
-              </div>
-              <span class="badge bg-secondary">4.3 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              A fictional café with leafy window boxes and a short menu of comforting drinks.
-            </p>
-            <button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
-            <hr class="my-3">
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
-            <div class="d-flex align-items-start mb-2">
-              <div class="review-avatar me-2">LC</div>
-              <div><strong class="small d-block">Luca Conti</strong><p class="small text-muted mb-0">A welcoming place for a coffee and a catch-up.</p></div>
-            </div>
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">FS</div>
-              <div><strong class="small d-block">Farah Shah</strong><p class="small text-muted mb-0">Relaxed atmosphere and a nice selection of refreshments.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
+		<div class="modal fade" id="cafeInfoModal" tabindex="-1" aria-labelledby="cafeInfoModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title fs-5" id="cafeInfoModalLabel">About this café</h2>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<p class="mb-0" id="cafeInfoModalDescription"></p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
-      <!-- Cafe 11: Bramble & Bun -->
-      <div class="col-md-6 col-lg-4 order-11">
-        <div class="card card-coffee">
-          <img src="https://images.pexels.com/photos/27589853/pexels-photo-27589853/free-photo-of-two-cups-with-toothpicks-on-a-wooden-table.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee at Bramble and Bun">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">Bramble &amp; Bun</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Orchard Walk, Leicester</span>
-              </div>
-              <span class="badge bg-secondary">4.7 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              An imagined bakehouse serving simple espresso alongside buns inspired by the local hedgerows.
-            </p>
-            <hr class="my-3">
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
-            <div class="d-flex align-items-start mb-2">
-              <div class="review-avatar me-2">GW</div>
-              <div><strong class="small d-block">Grace Wilson</strong><p class="small text-muted mb-0">The pastries are lovely with a cappuccino.</p></div>
-            </div>
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">IK</div>
-              <div><strong class="small d-block">Imran Khan</strong><p class="small text-muted mb-0">A cosy stop for a coffee and something freshly baked.</p></div>
-            </div>
-            <button type="button" class="btn btn-link btn-sm p-0 mt-2 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
-          </div>
-        </div>
-      </div>
+		<!-- TODO: Update robots.txt to remove obsolete endpoints. -->
+		<footer class="py-4 text-center">
+			<div class="container">
+				<p class="mb-1 small">Fictional Leicester Coffee Guide &copy; 2026</p>
+				<p class="small mb-1">
+					Photography: Pexels contributors (<a href="https://www.pexels.com/photo/coffee-break-28298535/" class="text-white-50">Rumeyda Tutak</a>, <a href="https://www.pexels.com/photo/two-cups-with-toothpicks-on-a-wooden-table-27589853/" class="text-white-50">Pedro Dias</a>, <a href="https://www.pexels.com/photo/cozy-indoor-coffee-shop-interior-with-display-30948318/" class="text-white-50">Batuhan Kocabaş</a>,
+					<a href="https://www.pexels.com/photo/cup-of-aromatic-cappuccino-served-on-marble-table-4913342/" class="text-white-50">Maria Orlova</a>, <a href="https://www.pexels.com/photo/coffee-beans-on-a-counter-top-16682442/" class="text-white-50">Navid Sohrabi</a> and <a href="https://www.pexels.com/photo/white-ceramic-cup-with-coffee-6747870/" class="text-white-50">Rania Alsahabi</a>), used under the <a href="https://www.pexels.com/license/" class="text-white-50">Pexels License</a>.
+				</p>
+				<p class="mb-0 text-white-50 small">Maintained by <a href="https://github.com/ignacy-zaleuski" class="text-white-50">ignacy-zaleuski</a> | Hosted on GitHub Pages</p>
+			</div>
+		</footer>
 
-      <!-- Cafe 12: Common Thread Cafe -->
-      <div class="col-md-6 col-lg-4 order-12">
-        <div class="card card-coffee">
-          <img src="https://images.pexels.com/photos/30948318/pexels-photo-30948318/free-photo-of-cozy-indoor-coffee-shop-interior-with-display.jpeg?h=1000&amp;w=1500&amp;fit=crop" class="coffee-img" alt="Coffee at Common Thread Cafe">
-          <div class="card-body p-4">
-            <div class="d-flex justify-content-between align-items-start mb-2">
-              <div>
-                <h3 class="h4 card-title fw-bold mb-1">Common Thread Café</h3>
-                <span class="text-muted small"><i class="bi bi-geo-alt-fill text-danger me-1"></i>Mothwing Quarter, Leicester</span>
-              </div>
-              <span class="badge bg-secondary">4.5 / 5.0</span>
-            </div>
-            <p class="card-text text-secondary small">
-              A fictional café and kitchen where coffee comes with a generous side of quiet conversation.
-            </p>
-            <button type="button" class="btn btn-link btn-sm p-0 text-decoration-none" data-bs-toggle="modal" data-bs-target="#cafeInfoModal">Click here to find out more</button>
-            <hr class="my-3">
-            <h6 class="fw-bold mb-3"><i class="bi bi-chat-square-text me-2"></i>Community Reviews</h6>
-            <div class="d-flex align-items-start mb-2">
-              <div class="review-avatar me-2">ES</div>
-              <div><strong class="small d-block">Ethan Scott</strong><p class="small text-muted mb-0">A good place to take a break and enjoy a coffee.</p></div>
-            </div>
-            <div class="d-flex align-items-start">
-              <div class="review-avatar me-2">RP</div>
-              <div><strong class="small d-block">Ruby Patel</strong><p class="small text-muted mb-0">Friendly service and a menu with plenty of choice.</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
+		<!-- Bootstrap 5 JS -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+		<script>
+			const cafeInfoModal = document.getElementById("cafeInfoModal");
+			cafeInfoModal.addEventListener("show.bs.modal", (event) => {
+				const trigger = event.relatedTarget;
+				const card = trigger instanceof HTMLElement ? trigger.closest(".card-coffee") : null;
+				const description = card?.querySelector(".card-text");
+				const modalDescription = cafeInfoModal.querySelector("#cafeInfoModalDescription");
 
-    </div>
-  </main>
+				if (!description || !modalDescription) {
+					throw new Error("The café information modal could not find its listing description.");
+				}
 
-  <div class="modal fade" id="ownerNoteModal" tabindex="-1" aria-labelledby="ownerNoteModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title fs-5" id="ownerNoteModalLabel">A note from the owner</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <p class="mb-2">Thanks for stopping by my favourite Leicester coffee spot.</p>
-          <p class="fw-bold fs-4 mb-0">FLAG{Mokha}</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade" id="cafeInfoModal" tabindex="-1" aria-labelledby="cafeInfoModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title fs-5" id="cafeInfoModalLabel">About this café</h2>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p class="mb-0" id="cafeInfoModalDescription"></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- TODO: Update robots.txt to remove obsolete endpoints. -->
-  <footer class="py-4 text-center">
-    <div class="container">
-      <p class="mb-1 small">Fictional Leicester Coffee Guide &copy; 2026</p>
-      <p class="small mb-1">Photography: Pexels contributors
-        (<a href="https://www.pexels.com/photo/coffee-break-28298535/" class="text-white-50">Rumeyda Tutak</a>,
-        <a href="https://www.pexels.com/photo/two-cups-with-toothpicks-on-a-wooden-table-27589853/" class="text-white-50">Pedro Dias</a>,
-        <a href="https://www.pexels.com/photo/cozy-indoor-coffee-shop-interior-with-display-30948318/" class="text-white-50">Batuhan Kocabaş</a>,
-        <a href="https://www.pexels.com/photo/cup-of-aromatic-cappuccino-served-on-marble-table-4913342/" class="text-white-50">Maria Orlova</a>,
-        <a href="https://www.pexels.com/photo/coffee-beans-on-a-counter-top-16682442/" class="text-white-50">Navid Sohrabi</a> and
-        <a href="https://www.pexels.com/photo/white-ceramic-cup-with-coffee-6747870/" class="text-white-50">Rania Alsahabi</a>),
-        used under the <a href="https://www.pexels.com/license/" class="text-white-50">Pexels License</a>.
-      </p>
-      <p class="mb-0 text-white-50 small">
-        Maintained by <a href="https://github.com/ignacy-zaleuski" class="text-white-50">ignacy-zaleuski</a> | Hosted on GitHub Pages
-      </p>
-    </div>
-  </footer>
-
-  <!-- Bootstrap 5 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const cafeInfoModal = document.getElementById("cafeInfoModal");
-    cafeInfoModal.addEventListener("show.bs.modal", (event) => {
-      const trigger = event.relatedTarget;
-      const card = trigger instanceof HTMLElement ? trigger.closest(".card-coffee") : null;
-      const description = card?.querySelector(".card-text");
-      const modalDescription = cafeInfoModal.querySelector("#cafeInfoModalDescription");
-
-      if (!description || !modalDescription) {
-        throw new Error("The café information modal could not find its listing description.");
-      }
-
-      modalDescription.textContent = description.textContent.trim();
-    });
-  </script>
-</body>
+				modalDescription.textContent = description.textContent.trim();
+			});
+		</script>
+	</body>
 </html>
